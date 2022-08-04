@@ -56,10 +56,16 @@ def rename_mulcolname_withsql(spark):
         .printSchema()
 
 def rename_mulcolname_dynamic(spark):
+    #rename_mulcolname_dynamic(spark)
     #Using col() function – To Dynamically rename all or multiple columns
 
     df = spark.read.csv("file:///home/hadoop/Downloads/dataanalytics-main/MySQL/pet.csv")
-    df.col()
+    column = df.count()
+    print(column)
+    # for(i in 1:column)
+    #     print(df._c[i])
+        #df._c[i]=i
+    #df.col()
 
 def rename_mulcolname_todf(spark):
     #rename_mulcolname_todf(spark)

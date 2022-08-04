@@ -25,3 +25,23 @@ def df_filtercondn_sqlexpr(spark):
     # For not equal
     df.filter("_c3 != 'm'").show()
     df.filter("_c3 <> 'm'").show()
+
+def df_filtercondn_mulcondn(spark):
+    #df_filtercondn_mulcondn(spark)
+
+    #DataFrame based on multiple conditions
+    df = spark.read.csv("file:///home/hadoop/Downloads/dataanalytics-main/MySQL/pet.csv")
+    df.filter((df._c2 == "cat") & (df._c3 == "m")) \
+        .show(truncate=False)
+
+def df_filtercondn_list(spark):
+    # df_filtercondn_list(spark)
+
+    #Filter Based on List Values
+    df = spark.read.csv("file:///home/hadoop/Downloads/dataanalytics-main/MySQL/pet1.csv")
+    df.show()
+
+    li = ["lu", "at", "en"]
+    df.filter(df._c0.isin(li)).show()
+    df.filter(~df._c1.isin(li)).show()
+    df.filter(df._c1.isin(li) == False).show()

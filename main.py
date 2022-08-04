@@ -19,7 +19,8 @@ if __name__ == '__main__':
             .getOrCreate()
 
       #rename_mulcolname_dynamic(spark)
-      df_filtercondn_sqlexpr(spark)
+      #df_filtercondn_list(spark)
+
 
 
 
